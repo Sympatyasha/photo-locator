@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: photo-locator
+    env: python
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+      - key: PYTHONDONTWRITEBYTECODE
+        value: 1
+    autoDeploy: true
